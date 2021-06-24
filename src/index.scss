@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: rgb(212, 212, 212);
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: rgb(94, 204, 255);
+  font-weight: 500;
+}
+
+img {
+  max-width: 100%;
+  width: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+
+// container
+
+.container {
+  padding: 10px;
+}
+
+// table
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, tr {
+  border: 1px solid rgb(206, 206, 206);
+}
+
+td {
+  vertical-align: middle;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: break-word;
+  white-space: normal;
+
+  a {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    width: 50px;
+    overflow: hidden;
+  }
+
+  &:nth-child(1), &:nth-child(7), &:nth-child(10) {
+    border-right: rgb(206, 206, 206) 1px solid
+  }
+}
+
+thead td {
+  padding: 12px;
+}
+
+tbody td {
+  padding: 12px;
+
+  // &>div {
+  //   float: right;
+  // }
+}
+
+tbody tr {
+  background-color: rgb(255, 255, 255);
+}
+
+thead tr {
+  font-weight: bold;
+  cursor: pointer;
+  background-color: rgb(233, 233, 233);
+}
+
+.header {
+  border-right: rgb(206, 206, 206) 1px solid;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    color: rgb(180, 180, 180);
+    
+    & + & {
+      margin-top: 5px;
+    }
+  }
+
+  &_red {
+    color: rgb(196, 79, 79);
+  }
+
+  &_thin {
+    font-weight: 400;
+  }
+}
+
+.sum {
+  background: rgb(250, 221, 168);
+
+  &__name {
+    font-weight: bold;
+    color: black;
+  }
+}
+
+.source-name {
+  display: flex;
+  align-items: center;
+  width: 180px;
+  padding-right: 40px;
+
+  &__content {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+    color: rgb(126, 197, 255);
+    
+    div {
+      font-size: 11px;
+      color: rgb(187, 187, 187);
+    }
+  }
+}
+
+// BUTTON
+
+.btn-container {
+  width: 40px;
+}
+
+.btn {
+  cursor: pointer;
+  border-radius: 20%;
+  border: none;
+  font-weight: bold;
+  color: white;
+  vertical-align: sub;
+  background: grey;
+  outline: none;
+  margin-right: 14px;
+
+  &:active {
+    -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+    -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+  }
+}
