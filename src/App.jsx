@@ -358,46 +358,6 @@ export default function App() {
     },
   ])
 
-  React.useEffect(() => {
-    function sum() {
-      const result = sources.reduce((acc, cur) => {
-        acc.shows += cur.shows
-        acc.clicks += cur.clicks
-        acc.session += cur.session
-        acc.ctr += cur.ctr
-        acc.clickPrice += cur.clickPrice
-        acc.expenses += cur.expenses
-        acc.salesAmount += cur.salesAmount
-        acc.salesCpa += cur.salesCpa
-        acc.salesProceeds += cur.salesProceeds
-        acc.targetAmount += cur.targetAmount
-        acc.targetCpa += cur.targetCpa
-        acc.targetCr += cur.targetCr
-
-        return acc
-      }, {
-        sourceName: 'Итого',
-        shows: 0,
-        clicks: 0,
-        session: 0,
-        ctr: 0,
-        clickPrice: 0,
-        expenses: 0,
-
-        salesAmount: 0,
-        salesCpa: 0,
-        salesProceeds: 0,
-
-        targetAmount: 0,
-        targetCpa: 0,
-        targetCr: 0,
-      })
-
-      setSources([result, ...sources])
-    }
-
-    sum()
-  }, [])
 
   function sortSourcesByClickes() {
     setSources([...sources.sort((a, b) => b.clicks - a.clicks)])

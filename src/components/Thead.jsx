@@ -14,7 +14,7 @@ export default function Thead({
   sortSourcesByTargetCpa,
   sortSourcesByTargetCr
 }) {
-  const [clicked, setClicked] = React.useState(false);
+  const [ordered, setOrdered] = React.useState(false);
 
   return (
     <thead>
@@ -46,13 +46,12 @@ export default function Thead({
 
       <tr>
         <td>Название</td>
-
         <td onClick={sortSourcesByShows}>Показы <i className="fa fa-question-circle"></i></td>
         <td onClick={sortSourcesByClickes}>Клики</td>
         <td onClick={() => {
           sortSourcesBySession();
-          setClicked(!clicked)
-        }}>Сеансы {!clicked ? <strong>&#8595;</strong> : <strong>&#8593;</strong>}
+          setOrdered(!ordered);
+        }}>Сеансы {!ordered ? <strong>&#8595;</strong> : <strong>&#8593;</strong>}
         </td>
         <td onClick={sortSourcesByCtr}>CTR <i className="fa fa-question-circle"></i></td>
         <td onClick={sortSourcesByClickPrice}>Цена клика</td>
@@ -63,11 +62,9 @@ export default function Thead({
           </div>
         </td>
 
-
         <td onClick={sortSourcesBySalesAmount}>Кол-во</td>
         <td onClick={sortSourcesBySalesCpa}>CPA</td>
         <td onClick={sortSourcesBySalesProceeds}>Выручка</td>
-
 
         <td onClick={sortSourcesByTargetAmount}>Кол-во</td>
         <td onClick={sortSourcesByTargetCpa}>CPA</td>

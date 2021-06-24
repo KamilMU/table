@@ -47,7 +47,6 @@ td {
   white-space: nowrap;
   overflow: hidden;
   word-wrap: break-word;
-  white-space: normal;
 
   a {
     text-overflow: ellipsis;
@@ -68,10 +67,6 @@ thead td {
 
 tbody td {
   padding: 12px;
-
-  // &>div {
-  //   float: right;
-  // }
 }
 
 tbody tr {
@@ -99,10 +94,12 @@ thead tr {
 
   &_red {
     color: rgb(196, 79, 79);
+    cursor: initial;
   }
 
   &_thin {
     font-weight: 400;
+    cursor: initial;
   }
 }
 
