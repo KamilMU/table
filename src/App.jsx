@@ -358,71 +358,31 @@ export default function App() {
     },
   ])
 
-
-  function sortSourcesByClickes() {
-    setSources([...sources.sort((a, b) => b.clicks - a.clicks)])
-  }
-
-  function sortSourcesByShows() {
-    setSources([...sources.sort((a, b) => b.shows - a.shows)])
-  }
-
-  function sortSourcesBySession() {
-    setSources([...sources.sort((a, b) => b.session - a.session)])
-  }
-
-  function sortSourcesByCtr() {
-    setSources([...sources.sort((a, b) => b.ctr - a.ctr)])
-  }
-
-  function sortSourcesByClickPrice() {
-    setSources([...sources.sort((a, b) => b.clickPrice - a.clickPrice)])
-  }
-
-  function sortSourcesByExpenses() {
-    setSources([...sources.sort((a, b) => b.expenses - a.expenses)])
-  }
-
-  function sortSourcesBySalesAmount() {
-    setSources([...sources.sort((a, b) => b.salesAmount - a.salesAmount)])
-  }
-
-  function sortSourcesBySalesCpa() {
-    setSources([...sources.sort((a, b) => b.salesCpa - a.salesCpa)])
-  }
-
-  function sortSourcesBySalesProceeds() {
-    setSources([...sources.sort((a, b) => b.salesProceeds - a.salesProceeds)])
-  }
-
-  function sortSourcesByTargetAmount() {
-    setSources([...sources.sort((a, b) => b.targetAmount - a.targetAmount)])
-  }
-
-  function sortSourcesByTargetCpa() {
-    setSources([...sources.sort((a, b) => b.targetCpa - a.targetCpa)])
-  }
-
-  function sortSourcesByTargetCr() {
-    setSources([...sources.sort((a, b) => b.targetCr - a.targetCr)])
+  function sort(prop) {
+    return (descending) => {
+      const sorted = [
+        ...sources.sort((a, b) => descending ? b[prop] - a[prop] : a[prop] - b[prop])
+      ]
+      setSources(sorted)
+    }
   }
 
   return (
     <div className="container">
       <table>
         <Thead
-          sortSourcesByClickes={sortSourcesByClickes}
-          sortSourcesByShows={sortSourcesByShows}
-          sortSourcesBySession={sortSourcesBySession}
-          sortSourcesByCtr={sortSourcesByCtr}
-          sortSourcesByClickPrice={sortSourcesByClickPrice}
-          sortSourcesByExpenses={sortSourcesByExpenses}
-          sortSourcesBySalesAmount={sortSourcesBySalesAmount}
-          sortSourcesBySalesCpa={sortSourcesBySalesCpa}
-          sortSourcesBySalesProceeds={sortSourcesBySalesProceeds}
-          sortSourcesByTargetAmount={sortSourcesByTargetAmount}
-          sortSourcesByTargetCpa={sortSourcesByTargetCpa}
-          sortSourcesByTargetCr={sortSourcesByTargetCr}
+          sortSourcesByClickes={sort('clicks')}
+          sortSourcesByShows={sort('shows')}
+          sortSourcesBySession={sort('session')}
+          sortSourcesByCtr={sort('ctr')}
+          sortSourcesByClickPrice={sort('clickPrice')}
+          sortSourcesByExpenses={sort('expenses')}
+          sortSourcesBySalesAmount={sort('salesAmount')}
+          sortSourcesBySalesCpa={sort('salesCpa')}
+          sortSourcesBySalesProceeds={sort('salesProceeds')}
+          sortSourcesByTargetAmount={sort('targetAmount')}
+          sortSourcesByTargetCpa={sort('targetCpa')}
+          sortSourcesByTargetCr={sort('targetCr')}
         />
         <Tbody sources={sources} />
       </table>

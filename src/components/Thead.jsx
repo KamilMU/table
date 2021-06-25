@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import Td from './Td.jsx';
 
 export default function Thead({
   sortSourcesByClickes,
@@ -14,8 +15,6 @@ export default function Thead({
   sortSourcesByTargetCpa,
   sortSourcesByTargetCr
 }) {
-  const [ordered, setOrdered] = React.useState(false);
-
   return (
     <thead>
       <tr>
@@ -46,30 +45,28 @@ export default function Thead({
 
       <tr>
         <td>Название</td>
-        <td onClick={sortSourcesByShows}>Показы <i className="fa fa-question-circle"></i></td>
-        <td onClick={sortSourcesByClickes}>Клики</td>
-        <td onClick={() => {
-          sortSourcesBySession();
-          setOrdered(!ordered);
-        }}>Сеансы {!ordered ? <strong>&#8595;</strong> : <strong>&#8593;</strong>}
-        </td>
-        <td onClick={sortSourcesByCtr}>CTR <i className="fa fa-question-circle"></i></td>
-        <td onClick={sortSourcesByClickPrice}>Цена клика</td>
-        <td onClick={sortSourcesByExpenses}>
-          <div>
-            <div>Затраты</div>
-            <a href="#">Настроить? <i className="fa fa-question-circle"></i></a>
-          </div>
-        </td>
+        <Td
+          sort={sortSourcesByShows}
+          tdName={'Показы'}
+          questionMark={<i className="fa fa-question-circle"></i>}
+        />
+        <Td sort={sortSourcesByClickes} tdName={'Клики'} />
+        <Td sort={sortSourcesBySession} tdName={'Сеансы'} />
+        <Td sort={sortSourcesByCtr} tdName={'CTR'} />
+        <Td sort={sortSourcesByClickPrice} tdName={'Цена клика'} />
+        <Td
+          sort={sortSourcesByExpenses}
+          tdName={'Затраты'}
+          link={<a href="#">Настроить? <i className="fa fa-question-circle"></i></a>}
+        />
 
-        <td onClick={sortSourcesBySalesAmount}>Кол-во</td>
-        <td onClick={sortSourcesBySalesCpa}>CPA</td>
-        <td onClick={sortSourcesBySalesProceeds}>Выручка</td>
+        <Td sort={sortSourcesBySalesAmount} tdName={'Кол-во'} />
+        <Td sort={sortSourcesBySalesCpa} tdName={'CPA'} />
+        <Td sort={sortSourcesBySalesProceeds} tdName={'Выручка'} />
 
-        <td onClick={sortSourcesByTargetAmount}>Кол-во</td>
-        <td onClick={sortSourcesByTargetCpa}>CPA</td>
-        <td onClick={sortSourcesByTargetCr}>CR,%</td>
-
+        <Td sort={sortSourcesByTargetAmount} tdName={'Кол-во'} />
+        <Td sort={sortSourcesByTargetCpa} tdName={'CPA'} />
+        <Td sort={sortSourcesByTargetCr} tdName={'CR,%'} />
       </tr>
     </thead>
   )

@@ -3,15 +3,15 @@ import ShowButton from './ShowButton.jsx';
 import ChildrenRows from './ChildrenRows.jsx';
 
 export default function Row({ source }) {
-  const [clicked, setClicked] = React.useState(false);
+  const [childrenOpen, setChildrenOpen] = React.useState(false);
 
   return (
     <>
       <tr
-        style={clicked ? { backgroundColor: 'rgb(233, 233, 233)' } : ''}>
+        className={childrenOpen ? 'gray' : ''}>
         <td>
-          <div style={{ display: 'flex' }}>
-            <ShowButton source={source} clicked={clicked} setClicked={setClicked} />
+          <div className="name-row">
+            <ShowButton source={source} childrenOpen={childrenOpen} setChildrenOpen={setChildrenOpen} />
             <div className={"source-name"}>
               <img src={source.img} alt="" />
               <div className={"source-name__content"}>
@@ -19,26 +19,24 @@ export default function Row({ source }) {
                 <div>{source.type}. {source.children && 'Источников: ' + source.children.length}</div>
               </div>
             </div>
+
+            {!source.children && <div className="green"></div>}
           </div>
         </td>
-
-        <td><div>{source.shows}</div></td>
-        <td><div>{source.clicks}</div></td>
-        <td><div>{source.session}</div></td>
-        <td><div>{source.ctr}</div></td>
-        <td><div>{source.clickPrice}</div></td>
-        <td><div>{source.expenses}</div></td>
-
-        <td><a href="#">{source.salesAmount}</a> </td>
-        <td>{source.salesCpa}</td>
-        <td>{source.salesProceeds}</td>
-
-        <td>{source.targetAmount}</td>
-        <td>{source.targetCpa}</td>
-        <td>{source.targetCr}</td>
-
+        <td className="indicators">{source.shows}</td>
+        <td className="indicators">{source.clicks}</td>
+        <td className="indicators">{source.session}</td>
+        <td className="indicators">{source.ctr}</td>
+        <td className="indicators">{source.clickPrice}</td>
+        <td className="indicators">{source.expenses}</td>
+        <td className="indicators"><a href="#">{source.salesAmount}</a></td>
+        <td className="indicators">{source.salesCpa}</td>
+        <td className="indicators">{source.salesProceeds}</td>
+        <td className="indicators">{source.targetAmount}</td>
+        <td className="indicators">{source.targetCpa}</td>
+        <td className="indicators">{source.targetCr}</td>
       </tr>
-      <ChildrenRows clicked={clicked} source={source} />
+      <ChildrenRows childrenOpen={childrenOpen} source={source} />
     </>
   )
 }

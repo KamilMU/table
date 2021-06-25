@@ -8,19 +8,19 @@ export default function Tbody({ sources }) {
   return (
     <tbody>
       <tr className="sum">
-        <td>Итого</td>
-        <td>{_sum('shows')}</td>
-        <td>{_sum('clicks')}</td>
-        <td>{_sum('session')}</td>
-        <td>{_sum('ctr')}</td>
-        <td>{_sum('clickPrice')}</td>
-        <td>{_sum('expenses')}</td>
-        <td>{_sum('salesAmount').toFixed(2)}</td>
-        <td>{_sum('salesCpa')}</td>
-        <td>{_sum('salesProceeds')}</td>
-        <td>{_sum('targetAmount')}</td>
-        <td>{_sum('targetCpa')}</td>
-        <td>{_sum('targetCr')}</td>
+        <td><strong>Итого</strong></td>
+        <td className="indicators">{_sum('shows')}</td>
+        <td className="indicators">{_sum('clicks')}</td>
+        <td className="indicators">{_sum('session')}</td>
+        <td className="indicators">{_sum('ctr')}</td>
+        <td className="indicators">{_sum('clickPrice')}</td>
+        <td className="indicators">{_sum('expenses')}</td>
+        <td className="indicators">{_sum('salesAmount')}</td>
+        <td className="indicators">{_sum('salesCpa')}</td>
+        <td className="indicators">{_sum('salesProceeds')}</td>
+        <td className="indicators">{_sum('targetAmount')}</td>
+        <td className="indicators">{_sum('targetCpa')}</td>
+        <td className="indicators">{_sum('targetCr')}</td>
       </tr>
 
       {sources.map((source, index) => (
